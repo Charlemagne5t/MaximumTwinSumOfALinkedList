@@ -1,20 +1,21 @@
 package org.example;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class Solution {
     public int pairSum(ListNode head) {
-        Map<Integer, Integer> map = new HashMap<>();
-        int i = 0;
+        List<Integer> list = new ArrayList<>();
+
         while (head != null) {
-            map.put(i, head.val);
-            i++;
+            list.add(head.val);
             head = head.next;
         }
         int maxSum = 0;
-        for (int j = 0; j < map.size(); j++) {
-            maxSum = Math.max(maxSum, map.get(j) + map.get(map.size() - j - 1));
+        for (int j = 0; j < list.size(); j++) {
+            maxSum = Math.max(maxSum, list.get(j) + list.get(list.size() - j - 1));
         }
         return maxSum;
     }
